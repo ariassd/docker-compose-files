@@ -1,0 +1,12 @@
+# Services data
+*mongo-data
+*postgres-data
+*rabbitmq-data
+
+# compiled output
+/dist
+/node_modules
+.vscode
+
+# OS
+.DS_Store

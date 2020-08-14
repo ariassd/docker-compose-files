@@ -1,0 +1,54 @@
+version: "3.1"
+
+# Rabbit MQ
+services:
+  # networks:
+  #   net:
+  #     # driver: bridge
+  #     driver: overlay # Used for compatibility with swarm
+
+  rabbit1:
+    image: rabbitmq:3-management
+    hostname: rabbitmq_master
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER:-admin}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS:-admin}
+
+    volumes: # make sure directories exists
+      - ./rabbitmq-data/etc/:/etc/rabbitmq/
+      - ./rabbitmq-data/data/:/var/lib/rabbitmq/
+      - ./rabbitmq-data/logs/:/var/log/rabbitmq/
+    # networks:
+    #   - net
+#
+# CLUSTER START HERE
+#
+#  # First slave rabbitmq
+#  rabbit2:
+#    image: rabbitmq:3-management
+#    hostname: rabbitmq_slave1
+#    links:
+#      - rabbitmq_master
+#    environment:
+#      - CLUSTERED=true
+#      - CLUSTER_WITH=rabbitmq_master
+#      - RAM_NODE=true
+#    ports:
+#      - "5673:5672"
+#      - "15673:15672"
+#
+#  # Second slave rabbitmq
+#  rabbit3:
+#    image: rabbitmq:3-management
+#    hostname: rabbitmq_slave2
+#    links:
+#      - rabbitmq_master
+#      - rabbitmq_slave1
+#    environment:
+#      - CLUSTERED=true
+#      - CLUSTER_WITH=rabbitmq_master
+#    ports:
+#      - "5674:5672"

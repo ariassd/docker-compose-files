@@ -31,6 +31,12 @@ docker network create rabbitmq_net
 docker run -d --network rabbitmq_net --hostname rabbitmqhost --name rabbitmq -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 ```
 
+Start rabbit using a bash file with persistence
+
+```bash
+sh rabbit.sh
+```
+
 ##### Rabbit MQ docker file Issues
 
 - Instance starts but Rabbit MQ is not accessible

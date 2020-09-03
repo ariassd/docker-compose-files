@@ -2,27 +2,24 @@ version: "3.1"
 
 # Rabbit MQ
 services:
-  # networks:
-  #   net:
-  #     # driver: bridge
-  #     driver: overlay # Used for compatibility with swarm
-
   rabbit1:
-    image: rabbitmq:3-management
-    hostname: rabbitmq_master
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+    image: "rabbitmq:3-management"
+    hostname: "rabbit1"
     environment:
-      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER:-admin}
-      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS:-admin}
-
+      RABBITMQ_ERLANG_COOKIE: "SMOCKINGISNOTGOODFORUS"
+      RABBITMQ_DEFAULT_USER: "guest"
+      RABBITMQ_DEFAULT_PASS: "guest"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    labels:
+      NAME: "rabbitmq1"
     volumes: # make sure directories exists
-      - ./rabbitmq-data/etc/:/etc/rabbitmq/
-      - ./rabbitmq-data/data/:/var/lib/rabbitmq/
-      - ./rabbitmq-data/logs/:/var/log/rabbitmq/
-    # networks:
-    #   - net
+      # - "./rabbitmq-data/etc:/etc/rabbitmq"
+      - "./rabbitmq-data/data:/var/lib/rabbitmq"
+      - "./rabbitmq-data/logs:/var/log/rabbitmq"
+
 #
 # CLUSTER START HERE
 #

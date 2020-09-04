@@ -37,10 +37,6 @@ Start rabbit using a bash file with persistence
 sh rabbit.sh
 ```
 
-##### Rabbit MQ docker file Issues
-
-- Instance starts but Rabbit MQ is not accessible
-
 ## Docker couchbase using CLI
 
 ```bash

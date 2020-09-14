@@ -8,7 +8,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - /Volumes/Documents/docker/mongo-data:/data/db
+      - ./mongo-data:/data/db
     environment:
       SET_CONTAINER_TIMEZONE: "true"
       TZ: America/Costa_Rica

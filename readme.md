@@ -8,6 +8,11 @@ Run a mongo database instance in a docker container.
 docker stack deploy -c mongo.yml mongo
 ```
 
+```bash
+#alternative
+sudo docker run -it -v /Volumes/Documents/docker/mongo-data:/data/db --name mongodb -d mongo
+```
+
 ## Docker compose for postgres
 
 Run a postgres instance in a docker container

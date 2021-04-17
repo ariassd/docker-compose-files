@@ -1,9 +1,14 @@
 version: "3.1"
 
+#networks:
+#  app-tier:
+#    driver: bridge
+
 # Mongo DB
 services:
   mongo:
     image: mongo
+    # command: mongod --port 27017
     hostname: mongo_host
     ports:
       - 27017:27017
@@ -12,5 +17,9 @@ services:
     environment:
       SET_CONTAINER_TIMEZONE: "true"
       TZ: America/Costa_Rica
-  #      MONGO_INITDB_ROOT_USERNAME: root
-  #      MONGO_INITDB_ROOT_PASSWORD: root
+#        MONGO_INITDB_ROOT_USERNAME: root
+#        MONGO_INITDB_ROOT_PASSWORD: root
+#    networks:
+#      #- bridge
+#      #- app-tier
+

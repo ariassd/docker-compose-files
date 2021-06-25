@@ -14,7 +14,7 @@ docker run \
   -v "${PWD}/rabbitmq-data/logs:/var/log/rabbitmq" \
   -p 15672:15672 \
   -p 5672:5672 \
-  rabbitmq:3-management
+  rabbitmq:3-management-alpine
 
 echo 'open http://localhost:15672 to start'
 echo 'User and password:  guest / guest'

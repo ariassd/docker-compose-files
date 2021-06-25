@@ -1,10 +1,9 @@
-version: "3.1"
+version: "3.0"
 
-# Rabbit MQ
 services:
-  rabbit1:
+  rabbit:
     image: "rabbitmq:3-management"
-    hostname: "rabbit1"
+    hostname: "rabbit_host"
     environment:
       RABBITMQ_ERLANG_COOKIE: "SMOCKINGISNOTGOODFORUS"
       RABBITMQ_DEFAULT_USER: "guest"
@@ -13,12 +12,10 @@ services:
     ports:
       - "15672:15672"
       - "5672:5672"
-    labels:
-      NAME: "rabbitmq1"
     volumes: # make sure directories exists
-      # - "./rabbitmq-data/etc:/etc/rabbitmq"
       - "./rabbitmq-data/data:/var/lib/rabbitmq"
       - "./rabbitmq-data/logs:/var/log/rabbitmq"
+    # - "./rabbitmq-data/etc:/etc/rabbitmq"
 
 #
 # CLUSTER START HERE

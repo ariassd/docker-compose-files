@@ -21,6 +21,17 @@ Run a postgres instance in a docker container
 docker stack deploy -c postgres.yml postgres
 ```
 
+```bash
+#Alternative
+$ docker run -d \
+    --name postgres \
+    -e POSTGRES_PASSWORD=postgres \
+    -e PGDATA=/var/lib/postgresql/data/pgdata \
+    -v ./postgres-data:/var/lib/postgresql/data \
+    postgres
+
+```
+
 ## Docker compose for rabbit mq
 
 Run a rabbit mq instance in a docker container
@@ -46,6 +57,21 @@ sh rabbit.sh
 
 ```bash
 docker run -d --name db -p 8091-8094:8091-8094 -p 11210:11210 couchbase
+```
+
+# Common problems
+
+### Mongo does not connect.
+
+```bash
+
+# remove stacks
+
+docker swarm leave --force
+docker swarm init
+
+# run the stacks again
+
 ```
 
 # Docker commands

@@ -2,12 +2,12 @@ version: "3.1"
 
 # Postgre
 services:
-  postgre:
+  postgres:
     image: postgres
-    hostname: postgres_host
+    # hostname: postgres_host
     environment:
       SET_CONTAINER_TIMEZONE: "true"
-      TZ: Etc/GMT+6 # America/Costa_Rica
+      TZ: America/Costa_Rica
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres

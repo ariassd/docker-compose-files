@@ -13,6 +13,23 @@ docker stack deploy -c mongo.yml mongo
 sudo docker run -it -v /Volumes/Documents/docker/mongo-data:/data/db --name mongodb -d mongo
 ```
 
+## Docker mongo image tags
+`https://hub.docker.com/_/mongo?tab=tags&page=1&ordering=last_updated&name=4.4.8`
+
+## Backup and restore databases.
+```bash
+
+Backup 
+## Docker compose for mongo
+# tar -czf mongo-data-back.tgz mongo-data
+tar -czvf mongo-data-back.tgz mongo-data
+
+# restore
+tar -xvf mongo-data-back.tgz
+
+
+```
+
 ## Docker compose for postgres
 
 Run a postgres instance in a docker container

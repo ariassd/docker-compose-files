@@ -7,8 +7,10 @@ version: "3.1"
 # Mongo DB
 services:
   mongo:
-    image: mongo
+    # image: mongo
+    image: mongo:4.4.8
     # command: mongod --port 27017
+    # command: mongod --repair
     hostname: mongo_host
     ports:
       - 27017:27017

@@ -1,7 +1,7 @@
 # Services data
-*mongo-data
-*postgres-data
-*rabbitmq-data
+*mongo-data*
+*postgres-data*
+*rabbitmq-data*
 
 # compiled output
 /dist

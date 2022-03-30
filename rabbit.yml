@@ -1,22 +1,22 @@
-version: "3.0"
+version: "3.8"
+#docker stack deploy -c rabbit.yml rabbit
 
 services:
   rabbit:
-    image: "rabbitmq:3-management"
-    hostname: "rabbit_host"
+    image: rabbitmq:3-management
+    hostname: rabbit_host
     environment:
-      RABBITMQ_ERLANG_COOKIE: "SMOCKINGISNOTGOODFORUS"
-      RABBITMQ_DEFAULT_USER: "guest"
-      RABBITMQ_DEFAULT_PASS: "guest"
-      RABBITMQ_DEFAULT_VHOST: "/"
+      RABBITMQ_ERLANG_COOKIE: SMOCKINGISNOTGOODFORUS
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_VHOST: /
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - 15672:15672
+      - 5672:5672
     volumes: # make sure directories exists
-      - "./rabbitmq-data/data:/var/lib/rabbitmq"
-      - "./rabbitmq-data/logs:/var/log/rabbitmq"
+      - ../databases/rabbitmq/data:/var/lib/rabbitmq
+      - ../databases/rabbitmq/logs:/var/log/rabbitmq
     # - "./rabbitmq-data/etc:/etc/rabbitmq"
-
 #
 # CLUSTER START HERE
 #

@@ -1,10 +1,9 @@
-version: "3.1"
+version: "3.8"
+# docker stack deploy -c postgres.yml postgres
 
-# Postgre
 services:
   postgres:
     image: postgres:13.5
-    # hostname: postgres_host
     environment:
       SET_CONTAINER_TIMEZONE: "true"
       TZ: America/Costa_Rica
@@ -12,6 +11,6 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - ../databases/postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432

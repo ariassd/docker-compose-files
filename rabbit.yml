@@ -4,7 +4,7 @@ version: "3.8"
 services:
   rabbit:
     image: rabbitmq:3-management
-    hostname: rabbit_host
+    # hostname: rabbit_host
     environment:
       RABBITMQ_ERLANG_COOKIE: SMOCKINGISNOTGOODFORUS
       RABBITMQ_DEFAULT_USER: guest

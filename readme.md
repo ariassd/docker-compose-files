@@ -14,12 +14,14 @@ sudo docker run -it -v /Volumes/Documents/docker/mongo-data:/data/db --name mong
 ```
 
 ## Docker mongo image tags
+
 `https://hub.docker.com/_/mongo?tab=tags&page=1&ordering=last_updated&name=4.4.8`
 
 ## Backup and restore databases.
+
 ```bash
 
-Backup 
+Backup
 ## Docker compose for mongo
 # tar -czf mongo-data-back.tgz mongo-data
 tar -czvf mongo-data-back.tgz mongo-data
@@ -68,6 +70,13 @@ Start rabbit using a bash file with persistence
 
 ```bash
 sh rabbit.sh
+```
+
+Fix damage mongo database
+
+```bash
+# Repair database: docker run -it -v <path>:/data/db <image-name> mongod --repair
+#              eg: docker run -it -v ../databases/mongo:/data/db  mongo:4.4.8 mongod --repair
 ```
 
 ## Docker couchbase using CLI

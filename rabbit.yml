@@ -6,7 +6,7 @@ services:
   rabbit:
     hostname: "dev-rabbitmq"
     image: rabbitmq:3.9-management-alpine
-    container_name: "rabbitmq"
+    # container_name: "rabbitmq"
     # hostname: rabbit_host
     environment:
       RABBITMQ_ERLANG_COOKIE: SMOCKINGISNOTGOODFORUS

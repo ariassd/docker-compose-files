@@ -1,5 +1,6 @@
 version: "3.8"
 # docker stack deploy -c postgres.yml postgres
+# docker compose -f postgres.yml run postgres -d
 
 services:
   postgres:

@@ -2,6 +2,7 @@ version: "3.8"
 # docker stack deploy -c mongo.yml mongo
 # Repair database: docker run -it -v <absolute_path>:/data/db <image-name> mongod --repair
 #              eg: docker run -it -v ROOT../databases/mongo:/data/db  mongo:4.4.8 mongod --repair
+# docker compose -f mongo.yml run mongo -d
 
 # Mongo DB
 services:

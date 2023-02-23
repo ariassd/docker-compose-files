@@ -27,6 +27,4 @@ services:
     volumes:
       - ../databases/plex/library:/config
       - ../databases/plex/transcode:/transcode
-      - /Volumes/HDD/TheosA/Video.Anime:/data/tvshows
-      - /Volumes/HDD/TheosA/Video.Peliculas:/data/movies
     restart: unless-stopped
